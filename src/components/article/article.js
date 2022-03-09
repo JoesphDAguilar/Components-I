@@ -100,7 +100,7 @@ const data = [
     <p class="date">{date of the article}</p>
 
     {three separate paragraph elements}
-
+    <p></p> <p></p> <p></p>
     <span class="expandButton">+</span>
   </div>
 
@@ -115,3 +115,15 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(data) {
+
+  const openDiv = document.createElement("div");
+  const title = document.createElement("h2");
+  const date = document.createElement("p");
+  const firstPar = document.createElement("p");
+  const secPar = document.createElement("p");
+  const thirdPar = document.createElement("p");
+  const closeDiv = document.createElement("div");
+  
+}
