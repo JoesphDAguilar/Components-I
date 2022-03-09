@@ -117,13 +117,33 @@ const data = [
 */
 
 function articleMaker(data) {
-
   const openDiv = document.createElement("div");
-  const title = document.createElement("h2");
-  const date = document.createElement("p");
+  const artTitle = document.createElement("h2");
+  const artDate = document.createElement("p");
   const firstPar = document.createElement("p");
   const secPar = document.createElement("p");
   const thirdPar = document.createElement("p");
-  const closeDiv = document.createElement("div");
-  
+  const artSpan = document.createElement("span");
+
+  openDiv.appendChild(artTitle);
+  openDiv.appendChild(artDate);
+  openDiv.appendChild(firstPar);
+  openDiv.appendChild(secPar);
+  openDiv.appendChild(thirdPar);
+  openDiv.appendChild(artSpan);
+
+  openDiv.classList.add("article");
+  artDate.classList.add("date");
+  artSpan.classList.add("expandButton");
+
+  artTitle.textContent = data.title;
+  artDate.textContent = data.date;
+  firstPar.textContent = data.firstParagraph;
+  secPar.textContent = data.secondParagraph;
+  thirdPar.textContent = data.thirdParagraph;
+  artSpan.textContent = "+";
+
+  return openDiv;
 }
+
+console.log(articleMaker(data))
