@@ -116,8 +116,10 @@ const data = [
   Refresh the page to see the new article.
 */
 
+const articles = document.querySelector(".articles");
+
 function articleMaker(data) {
-  const openDiv = document.createElement("div");
+  const artDiv = document.createElement("div");
   const artTitle = document.createElement("h2");
   const artDate = document.createElement("p");
   const firstPar = document.createElement("p");
@@ -125,14 +127,14 @@ function articleMaker(data) {
   const thirdPar = document.createElement("p");
   const artSpan = document.createElement("span");
 
-  openDiv.appendChild(artTitle);
-  openDiv.appendChild(artDate);
-  openDiv.appendChild(firstPar);
-  openDiv.appendChild(secPar);
-  openDiv.appendChild(thirdPar);
-  openDiv.appendChild(artSpan);
+  artDiv.appendChild(artTitle);
+  artDiv.appendChild(artDate);
+  artDiv.appendChild(firstPar);
+  artDiv.appendChild(secPar);
+  artDiv.appendChild(thirdPar);
+  artDiv.appendChild(artSpan);
 
-  openDiv.classList.add("article");
+  artDiv.classList.add("article");
   artDate.classList.add("date");
   artSpan.classList.add("expandButton");
 
@@ -143,7 +145,17 @@ function articleMaker(data) {
   thirdPar.textContent = data.thirdParagraph;
   artSpan.textContent = "+";
 
-  return openDiv;
+  artSpan.addEventListener("click", () => {
+    artDiv.classList.toggle("article-open");
+  })
+
+  return artDiv;
 }
 
-console.log(articleMaker(data))
+const articleElements = data.map(elem => {
+  return articleMaker(elem);
+})
+
+articleElements.forEach(elem => {
+  articles.appendChild(elem);
+})
